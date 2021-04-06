@@ -1,0 +1,82 @@
+{% load bootstrap3 %}
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+
+  {% if title %}
+  <title>OzZy_WorlD  - {{title}}</title>
+  {% else %}
+    <title> OzZy_WorlD </title>
+  {% endif %}
+  {% load static %}
+
+  {% block styles %}
+  {% bootstrap_css %}
+
+    <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Roboto:300,400,700|PT+Sans:400,400i,700,700i" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+    <!-- Custom Theme files -->
+    <link href='//fonts.googleapis.com/css?family=Raleway:400,600,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{% static 'css/pic.css' %}">
+  {% endblock %}
+
+
+
+</head>
+<body>
+    {% include "navbar.html" %}
+
+    {% block content %}  {%endblock%}
+
+      <!-- Footer -->
+  <footer>
+    
+    <div class="container footer">
+      <div class="row">
+        <div class="col-lg-8 col-md-10 mx-auto">
+          <ul class="list-inline text-center">
+            <li class="copyright text-muted">Copyright &copy; Oscar Gichana 2021</li>
+            <li class="list-inline-item">
+              <a href="https://facebook.com/OscarGichana9" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-facebook fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://www.instagram.com/ossy_gichy/" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-instagram fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+            <li class="list-inline-item">
+              <a href="https://github.com/OscarGichana" target="_blank">
+                <span class="fa-stack fa-lg">
+                  <i class="fas fa-circle fa-stack-2x"></i>
+                  <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                </span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+<hr>
+    {% block scripts %}
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        {% load static %}
+          
+        <script src="{% static 'js/index.js' %}"></script>   
+
+     {% bootstrap_javascript %}
+    {% endblock %}
+</body>
+</html>
+
