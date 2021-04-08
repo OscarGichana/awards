@@ -32,6 +32,7 @@ from django.core.wsgi import get_wsgi_application
 #     }
     
 # }
+os.environ.setdefault("DJANGO_SETTINGS_MODULE", "project.settings.dev")
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
