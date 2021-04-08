@@ -14,7 +14,7 @@ import os
 import cloudinary
 import cloudinary.uploader
 import cloudinary.api
-# import django_heroku
+import django_heroku
 import dj_database_url
 from decouple import config
 
@@ -33,7 +33,7 @@ SECRET_KEY = 'r1fvveh6-f4&2+3gfp-3#^c4%j$@=dutpk^yx9qak)80xww8z&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = config('ALLOWED_HOSTS')
 
 
 # Application definition
