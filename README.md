@@ -16,11 +16,12 @@ An app where users can get to view website projects by other people, comment  as
 
 ## User Story
 
-1. View different photos that interest you.
-2. Click an image to like it.
-3. Search for different images
-4. Comment on other peopl's photos.
-5. Follow other usres
+1. View posted projects and their details
+2. Post a project to be rated/reviewed
+3. Rate/ review other users' projects
+4. Search for projects 
+5. View projects overall score
+6. View my profile page
 
 ## Website Link
 
