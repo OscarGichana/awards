@@ -97,7 +97,7 @@ DATABASES = {
         'USER': 'oscar',
         'PASSWORD':'123456789os',
         'DISABLE_SERVER_SIDE_CURSORS': True,
-
+        'PORT': '5432',
     }
 }
 
