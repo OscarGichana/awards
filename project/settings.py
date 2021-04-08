@@ -11,6 +11,14 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 """
 
 import os
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+# import django_heroku
+import dj_database_url
+from decouple import config
+
+from django.core.wsgi import get_wsgi_application
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -39,6 +47,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'awards.apps.AwardsConfig',
     'bootstrap3',
+    'registration',
+    'cloudinary',
+    'phonenumber_field',
+    'rest_framework',
+    'rest_framework.authtoken', 
 
 
 ]
@@ -87,6 +100,13 @@ DATABASES = {
 
     }
 }
+
+
+cloudinary.config( 
+  cloud_name = 'oscarrito', 
+  api_key = '827845982482824', 
+  api_secret = 'xPAnMTzigO-1yH_U-S_57A4e7Rg', 
+)
 
 
 # Password validation
@@ -139,3 +159,12 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Configure Django App for Heroku.
 # django_heroku.settings(locals())
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+    )
+}
+
+LOGOUT_REDIRECT_URL = 'index'
+LOGIN_REDIRECT_URL = 'index'

@@ -5,9 +5,9 @@
   <meta charset="utf-8">
 
   {% if title %}
-  <title>OzZy_WorlD  - {{title}}</title>
+  <title>Awards  - {{title}}</title>
   {% else %}
-    <title> OzZy_WorlD </title>
+    <title> Awards </title>
   {% endif %}
   {% load static %}
 
@@ -17,7 +17,8 @@
     <link href="https://fonts.googleapis.com/css?family=PT+Serif:400,400i,700,700i|Roboto:300,400,700|PT+Sans:400,400i,700,700i" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+    
     <!-- Custom Theme files -->
     <link href='//fonts.googleapis.com/css?family=Raleway:400,600,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="{% static 'css/pic.css' %}">
@@ -72,7 +73,8 @@
     {% block scripts %}
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
         {% load static %}
-          
+        <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
+
         <script src="{% static 'js/index.js' %}"></script>   
 
      {% bootstrap_javascript %}
