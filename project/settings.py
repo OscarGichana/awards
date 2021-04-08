@@ -33,7 +33,7 @@ SECRET_KEY = 'r1fvveh6-f4&2+3gfp-3#^c4%j$@=dutpk^yx9qak)80xww8z&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS='.localhost','.herokuapp.com','.127.0.0.1'
+ALLOWED_HOSTS='.localhost','.herokuapp.com','.127.0.0.1','0.0.0.0'
 
 
 # Application definition
@@ -169,4 +169,3 @@ REST_FRAMEWORK = {
 
 LOGOUT_REDIRECT_URL = 'index'
 LOGIN_REDIRECT_URL = 'index'
-DATABASE_PORT = '5432'
