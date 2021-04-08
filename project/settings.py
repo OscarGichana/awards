@@ -16,7 +16,7 @@ import cloudinary.uploader
 import cloudinary.api
 import django_heroku
 import dj_database_url
-from decouple import config
+from decouple import config,Csv
 
 from django.core.wsgi import get_wsgi_application
 
@@ -33,19 +33,19 @@ SECRET_KEY = 'r1fvveh6-f4&2+3gfp-3#^c4%j$@=dutpk^yx9qak)80xww8z&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS='.localhost','.herokuapp.com','.127.0.0.1','0.0.0.0'
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
 
 INSTALLED_APPS = [
+    'awards.apps.AwardsConfig',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'awards.apps.AwardsConfig',
     'bootstrap3',
     'registration',
     'cloudinary',
