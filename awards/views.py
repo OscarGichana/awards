@@ -72,5 +72,94 @@ def project(request, id):
                                           'latest_review_list':latest_review_list})
 
 
+def review_list(request):
+    latest_review_list = Review.objects.all()
+    context = {'latest_review_list':latest_review_list}
+    return render(request, 'review_list.html', context)
+
+
+def review_detail(request, review_id):
+    review = get_object_or_404(Review, pk=review_id)
+    return render(request, 'review_detail.html', {'review': review})
+
+@login_required(login_url='/accounts/login/')
+def edit_profile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = current_user
+            profile.profile_Id = request.user.id
+            profile.save()
+        return redirect('index')
+
+    else:
+        form = NewProfileForm()
+    return render(request, 'edit_profile.html', {"form": form})
+
+    def get_object(self):
+        return self.request.user
+
+
+
+@login_required(login_url='/accounts/login/')
+def new_project(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewProjectForm(request.POST, request.FILES)
+        if form.is_valid():
+            project = form.save(commit=False)
+            project.editor = current_user
+            project.save()
+        return redirect('index')
+
+    else:
+        form = NewProjectForm()
+    return render(request, 'new_project.html', {"form": form})
+
+
+@login_required(login_url='/accounts/login/')
+def new_profile(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = NewProfileForm(request.POST, request.FILES)
+        if form.is_valid():
+            profile = form.save(commit=False)
+            profile.user = current_user
+            profile.profile_Id = request.user.id
+            profile.save()
+        return redirect('profile')
+    else:
+        form = NewProfileForm()
+    return render(request, 'new_profile.html', {"form": form})   
+
+
+
+# class UserEditView(generic.UpdateView):
+#     form_class = NewProjectForm
+#     template_name = 'edit_profile.html'
+#     success_url = reverse_lazy('profile')
+
+#     def get_object(self):
+#         return self.request.user
+
+def search_projects(request):
+
+    # search for a user by their username
+    if 'project' in request.GET and request.GET["project"]:
+        search_term = request.GET.get("project")
+        searched_projects = Project.search_projects(search_term)
+        message = f"{search_term}"
+
+        return render(request, 'search.html', {"message": message, "projects": searched_projects})
+
+    else:
+        message = "You haven't searched for any person"
+        return render(request, 'search.html', {"message": message})
+
+
+
+
 
 
