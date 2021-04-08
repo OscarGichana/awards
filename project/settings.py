@@ -95,7 +95,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'awards',
         'USER': 'oscar',
-        'PASSWORD':'123',
+        'PASSWORD':'123456789os',
         'DISABLE_SERVER_SIDE_CURSORS': True,
 
     }
