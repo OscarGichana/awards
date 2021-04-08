@@ -33,7 +33,7 @@ SECRET_KEY = 'r1fvveh6-f4&2+3gfp-3#^c4%j$@=dutpk^yx9qak)80xww8z&'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = config('ALLOWED_HOSTS')
+ALLOWED_HOSTS='.localhost','.herokuapp.com','.127.0.0.1'
 
 
 # Application definition
@@ -93,11 +93,12 @@ WSGI_APPLICATION = 'project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'awards',
+        'NAME': 'award',
         'USER': 'oscar',
-        'PASSWORD':'123456789os',
+        'PASSWORD':'123',
         'DISABLE_SERVER_SIDE_CURSORS': True,
-        'PORT': '5432',
+        'PORT': '',
+        'HOST': '',
     }
 }
 
