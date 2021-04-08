@@ -1,0 +1,65 @@
+{% extends 'base.html' %} {% load static %} {% load bootstrap3%} {% block content %}
+<link href="https://fonts.googleapis.com/css?family=Charmonman|Dancing+Script|Kodchasan|Spirax|Abril+Fatface" rel="stylesheet">
+
+<div class="container">
+
+  <div class="jumbotron text-center" style="background-color:white;">
+
+    <h1 class="h1" style="font-family: 'Dosis', cursive; color:blue;font-size:70px;">Project Name: {{project.title}}</h1>
+    <p class="card-text" style="font-family: 'Dosis', sans-serif;"><strong>Description Of Project:</strong>
+      {{project.description}}</p>
+
+
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+
+        <img class="card-img-top" src="{{project.pic.url}}" alt="Card image cap" class="img-fluid" style="width: 100%;">
+
+
+        <h3 style="font-family: 'Dosis', sans-serif;">Add your comment</h3>
+        <hr>
+        <form action=""  method="post" style="font-family: 'Dosis',sans-serif;">
+          {%csrf_token%} {% bootstrap_form form %}
+            <input type="submit" class="btn btn-primary" value="Post">
+        </form>
+
+
+
+    </div>
+    <div class="jumbotron text-center" style="background-color:white;">
+
+      <div class="col-md-6">
+
+        <hr>
+        <h1 style="color:black;font-family: 'Dosis', sans-serif;">COMMENTS:</h1>
+        <h4>{{ review.project.title }}</h4>
+        {% for review in latest_review_list %}
+        <div>
+
+            <p style="color:black; font-family: 'Dosis',sans-serif;"> {{ review.comment }}  <br>
+              ..........written by {{ review.user }}</p>
+        </div>
+
+        {% endfor %}    
+
+        <h1 style="color:black;font-family: 'Dosis', sans-serif;">REVIEWS:</h1>
+
+
+        <h5 style="font-family: 'Dosis',sans-serif;">Project's Design Score out of {{ project.reviews.count }} reviews: ({{ project.average_design | floatformat }} )</h5>
+        <h5 style="font-family: 'Dosis',sans-serif;">Project's Content Score out of {{ project.reviews.count }} reviews: ({{ project.average_content | floatformat }} )</h5>
+        <h5 style="font-family: 'Dosis',sans-serif;">Project's Usability Score out of {{ project.reviews.count }} reviews: ({{ project.average_usability | floatformat }} )</h5>
+
+
+        <hr>
+
+      </div>
+    </div>
+  </div>
+
+</div>
+
+{% endblock %}
