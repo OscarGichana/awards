@@ -20,6 +20,19 @@ from decouple import config,Csv
 
 from django.core.wsgi import get_wsgi_application
 
+# development
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': config('DB_NAME'),
+        'USER': config('DB_USER'),
+        'PASSWORD': config('DB_PASSWORD'),
+        'HOST': config('DB_HOST'),
+        'PORT': '',
+    }
+    
+}
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
@@ -79,6 +92,8 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
+
             ],
         },
     },
@@ -97,8 +112,6 @@ DATABASES = {
         'USER': 'oscar',
         'PASSWORD':'123',
         'DISABLE_SERVER_SIDE_CURSORS': True,
-        'PORT': '',
-        'HOST': '',
     }
 }
 
