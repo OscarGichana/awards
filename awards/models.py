@@ -127,3 +127,15 @@ class Review(models.Model):
         return self.comment
 
 
+class MoringaMerch(models.Model):
+    user = models.OneToOneField(User, null=True, on_delete=models.CASCADE)
+    first_name = models.CharField(max_length = 60,null=True,blank=True)
+    pic = CloudinaryField('pic',null=True) 
+    bio = models.TextField(null=True,blank=True)
+    email = models.EmailField(null=True)
+
+class AwardsProject(models.Model):
+    title = models.CharField(max_length = 60)
+    pic = CloudinaryField('pic',null=True) 
+    description = models.TextField()
+    link = models.URLField(max_length = 300)
