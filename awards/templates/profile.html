@@ -1,0 +1,58 @@
+{%extends 'base.html'%}
+{% load bootstrap3 %}
+
+
+{% block content %} 
+{{ block.super}}
+
+<div class="container">
+  <div class="row">
+    <div class="col-md-9">
+      <h4 class="text-center"><strong>{{user.username}}'s Profile </strong></h4>
+
+      <hr>
+      <div class="profile-card-4 text-center">
+        <img style="width:90%; height:400px; border-radius: 50%;" id="imgCap"  src="{{user.profile.pic.url}}" href="" class="image" alt="Image" >
+        <div class="profile-content">
+              <div class="profile-name">{{user.username}}
+                  <p>@{{user.email}}</p>
+              </div>
+              <div class="profile-description">{{user.profile.bio}}</div>
+              <hr>
+              <div class="row">
+                  <div class="col-xs-4">
+                      <div class="profile-overview">
+                          <p>Posts</p>
+                          <h4>0</h4></div>
+                  </div>
+                  <div class="col-xs-4">
+                      <div class="profile-overview">
+                          <p>FOLLOWERS</p>
+                          <h4>{{user.profile.likes}}</h4></div>
+                  </div>
+                  <div class="col-xs-4">
+                      <div class="profile-overview">
+                          <p>FOLLOWING</p>
+                          <h4>168</h4></div>
+                  </div>
+                  <hr>
+              </div>
+          </div>
+      </div>
+    </div>
+    <div class="col-sm-3" style="font-size: 5rem; padding-left: 20px; float:right;">
+      <h4>CONTACT ME:</h4>
+      <div style="color:red;font-size:40px;" class="profile-description">{{user.profile.email}}</div>
+      <div style="color:red;font-size:40px;" class="profile-description">{{user.profile.phone_number}}</div>
+      <a href="{% url 'edit-profile' %}">
+        <p><span>Edit profile.</span></p>
+      </a>
+
+    </div>
+
+  </div>
+</div>
+
+<hr>
+
+{% endblock %}
